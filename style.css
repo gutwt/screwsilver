@@ -1,0 +1,201 @@
+/* Reset and basics */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #181818; /* Dark background */
+    color: #eee; /* Light text */
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #222; /* Darker header */
+    border-bottom: 1px solid #333; /* Darker border */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #ddd; /* Lighter logo text */
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ccc; /* Lighter navigation text */
+    font-weight: 500;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+nav a:hover {
+    color: #eee; /* Even lighter on hover */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #eee; /* Light hover line */
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    margin: 60px 0 30px;
+    font-size: 36px;
+    font-weight: 600;
+    color: #ddd; /* Lighter header text */
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Main Content */
+.content {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px 100px;
+    gap: 40px;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 1;
+    max-width: 250px;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    background: #222; /* Darker sidebar */
+    padding: 20px;
+    border: 1px solid #333; /* Darker border */
+    border-radius: 8px;
+    animation: slideIn 1.2s ease forwards;
+}
+
+.filter-group {
+    margin-bottom: 40px;
+}
+
+.filter-group h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ccc; /* Lighter filter heading */
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #bbb; /* Slightly lighter label text */
+    cursor: pointer;
+}
+
+.filter-group label input[type="checkbox"],
+.filter-group label input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #555; /* Darker accent for checkboxes/radios */
+}
+
+/* Products */
+.products {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.product-card {
+    background: #333; /* Darker product card */
+    border: 1px solid #444; /* Darker border */
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Subtle shadow */
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.3); /* More pronounced hover shadow */
+}
+
+.product-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #ddd; /* Lighter product name */
+}
+
+.product-price {
+    font-size: 14px;
+    color: #aaa; /* Slightly lighter price */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+    color: #888; /* Darker footer text */
+    background: #222; /* Darker footer background */
+    border-top: 1px solid #333; /* Darker border */
+}
+
+/* Animations (Keep these as they are, they should work well with the dark theme) */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* JavaScript (No changes needed for the dark theme itself) */
